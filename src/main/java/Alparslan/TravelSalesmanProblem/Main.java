@@ -1,13 +1,12 @@
 package Alparslan.TravelSalesmanProblem;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
 		String path = "C:\\\\\\\\campspring\\\\\\\\TravelSalesmanProblem\\\\\\\\src\\\\\\\\main\\\\\\\\java\\\\\\\\Alparslan\\\\\\\\TravelSalesmanProblem\\\\\\\\"
-				+ "tsp_5_1";
+				+ "tsp_5915_1";
 		ReadFromFile readFromFile = new ReadFromFile();
 		ArrayList<Double> coordinatesX = readFromFile.getXCoordinates(path);
 		ArrayList<Double> coordinatesY = readFromFile.getYCoordinates(path);

@@ -10,7 +10,7 @@ public class SolveTSP {
 	public SolveTSP(ArrayList<Double> X, ArrayList<Double> Y) {
 		this.XCoordinates = X;
 		this.YCoordinates = Y;
-		// Dosyadan okuduğumuz koordinatları buradaki ArrayListe atıyoruz
+		// Constructor injection
 	}
 
 	private double getDistance(int city1, int city2) {
@@ -27,19 +27,19 @@ public class SolveTSP {
 	public ArrayList<Integer> solveTSP() {
 
 		double cityNumber = XCoordinates.get(0);
-		int n = (int) Math.floor(cityNumber);
+		int numberOfCities = (int) Math.floor(cityNumber);
 		XCoordinates = new ArrayList<>(XCoordinates.subList(1, XCoordinates.size()));
 		YCoordinates = new ArrayList<>(YCoordinates.subList(1, YCoordinates.size()));
 		// burada şehir sayısını aldık ve geri kalan koordinatları
 		// tekrardan XCoordinates-YCoordinates'e aktardık
 
-		boolean[] visited = new boolean[n];
+		boolean[] visited = new boolean[numberOfCities];
 		visited[0] = true;// İlk şehir ziyaret edildi
 		ArrayList<Integer> visitedCities = new ArrayList<>();
 		visitedCities.add(0);
 
 		double totalDistance = 0;
-		int remainingCities = n - 1;
+		int remainingCities = numberOfCities - 1;
 
 		// Şehir kalmayana kadar git
 		while (remainingCities > 0) {
@@ -50,7 +50,7 @@ public class SolveTSP {
 			// En yakın şehri ve mesafeyi bul
 			int nearestCity = -1;
 			double nearestDistance = Double.MAX_VALUE;
-			for (int i = 0; i < n; i++) {
+			for (int i = 0; i < numberOfCities; i++) {
 				if (!visited[i]) {
 					double distance = getDistance(lastIndex, i);
 					if (distance < nearestDistance) {
@@ -67,9 +67,10 @@ public class SolveTSP {
 
 			totalDistance += nearestDistance;
 			remainingCities--;
+			// Mesafe toplam mesafeye ekleniyor
 		}
 
-		// Başlangıç Noktasına dönme
+		// Başlangıç Noktasına dönülüyor
 		int lastCity = visitedCities.get(visitedCities.size() - 1);
 		int startCity = visitedCities.get(0);
 		double lastDistance = getDistance(lastCity, startCity);

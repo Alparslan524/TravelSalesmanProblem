@@ -27,7 +27,6 @@ public class ReadFromFile {
 
 	public ArrayList<Double> getYCoordinates(String path) {
 
-		ArrayList<Double> xCoords = new ArrayList<Double>();
 		ArrayList<Double> yCoords = new ArrayList<Double>();
 
 		try {
@@ -35,9 +34,7 @@ public class ReadFromFile {
 			String line;
 			while ((line = br.readLine()) != null) {
 				String[] coordinates = line.split(" ");
-				double x = Double.parseDouble(coordinates[0]);
 				double y = Double.parseDouble(coordinates[1]);
-				xCoords.add(x);
 				yCoords.add(y);
 			}
 			br.close();
