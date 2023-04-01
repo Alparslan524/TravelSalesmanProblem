@@ -24,14 +24,11 @@ public class SolveTSP {
 		// 2 Nokta arası uzaklık Hesaplama(Math.sqrt => Kök)
 	}
 
-	public ArrayList<Integer> solveTSP() {
+	public ArrayList<Integer> solveTSP(double cityCount) {
 
-		double cityNumber = XCoordinates.get(0);
+		double cityNumber = cityCount;
 		int numberOfCities = (int) Math.floor(cityNumber);
-		XCoordinates = new ArrayList<>(XCoordinates.subList(1, XCoordinates.size()));
-		YCoordinates = new ArrayList<>(YCoordinates.subList(1, YCoordinates.size()));
-		// burada şehir sayısını aldık ve geri kalan koordinatları
-		// tekrardan XCoordinates-YCoordinates'e aktardık
+		// burada şehir sayısını aldık
 
 		boolean[] visited = new boolean[numberOfCities];
 		visited[0] = true;// İlk şehir ziyaret edildi

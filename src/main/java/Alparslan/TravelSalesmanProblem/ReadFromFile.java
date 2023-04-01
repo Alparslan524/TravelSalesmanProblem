@@ -28,14 +28,21 @@ public class ReadFromFile {
 	public ArrayList<Double> getYCoordinates(String path) {
 
 		ArrayList<Double> yCoords = new ArrayList<Double>();
-
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(path));
 			String line;
+			int count = 0; // koordinat sayısını tutmak için değişken oluşturduk
 			while ((line = br.readLine()) != null) {
 				String[] coordinates = line.split(" ");
-				double y = Double.parseDouble(coordinates[1]);
-				yCoords.add(y);
+				if (count != 0) {
+					// Count sıfırken ilk satırı okuyor sonra countun sayısını değiştiriyor ve 
+					// döngü bitiyor bir sonraki while döngüsüne giriyor yani alt satıra geçmiş oluyor
+					// Böylelikle İlk satırdaki verinin tek veri olması etkilemiyor. yCoords'a aktarmaya 2.satırdan itibaren başlıyor
+					double y = Double.parseDouble(coordinates[1]);
+					yCoords.add(y);
+				} else {
+					count = Integer.parseInt(coordinates[0]);
+				}
 			}
 			br.close();
 		} catch (IOException e) {
