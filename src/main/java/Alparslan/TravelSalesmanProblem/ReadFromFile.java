@@ -30,19 +30,11 @@ public class ReadFromFile {
 		ArrayList<Double> yCoords = new ArrayList<Double>();
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(path));
-			String line;
-			int count = 0; // koordinat sayısını tutmak için değişken oluşturduk
+			String line = br.readLine(); // ilk satırı oku ve atla
 			while ((line = br.readLine()) != null) {
 				String[] coordinates = line.split(" ");
-				if (count != 0) {
-					// Count sıfırken ilk satırı okuyor sonra countun sayısını değiştiriyor ve 
-					// döngü bitiyor bir sonraki while döngüsüne giriyor yani alt satıra geçmiş oluyor
-					// Böylelikle İlk satırdaki verinin tek veri olması etkilemiyor. yCoords'a aktarmaya 2.satırdan itibaren başlıyor
-					double y = Double.parseDouble(coordinates[1]);
-					yCoords.add(y);
-				} else {
-					count = Integer.parseInt(coordinates[0]);
-				}
+				double y = Double.parseDouble(coordinates[1]);
+				yCoords.add(y);
 			}
 			br.close();
 		} catch (IOException e) {

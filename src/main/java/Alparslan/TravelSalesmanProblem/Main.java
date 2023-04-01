@@ -6,7 +6,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		String path = "C:\\\\\\\\campspring\\\\\\\\TravelSalesmanProblem\\\\\\\\src\\\\\\\\main\\\\\\\\java\\\\\\\\Alparslan\\\\\\\\TravelSalesmanProblem\\\\\\\\"
-				+ "tsp_85900_1";
+				+ "tsp_5_1";
 		ReadFromFile readFromFile = new ReadFromFile();
 
 		ArrayList<Double> coordinatesXWithCityCount = readFromFile.getXCoordinates(path);// Şehir sayısı ile birliktye
