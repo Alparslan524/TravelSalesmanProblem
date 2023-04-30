@@ -1,4 +1,4 @@
-# Kodlama.io.Devs
+# Travel Salesman Problem
 
 ## Proje Amacı
 Gezgin satıcı problemini çözmek üzere geliştirdiğim algoritmadır.
